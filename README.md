@@ -22,6 +22,16 @@ Shared files: `styles.css` (colors and fonts are the variables at the top), `scr
 
 Fonts do not load when a page is opened directly from disk; use the local server below to preview.
 
+## Search engines (SEO)
+
+- **Titles and descriptions:** each page's `<title>` and `<meta name="description">` are written for Google results (titles under 60 characters, descriptions about 150).
+- **Canonical address:** `https://hoops4hunger.com/` with no `www`. `.htaccess` redirects `www`, `/index.html` and the old Website Builder addresses (`/schedule-rules`, `/register`, `/sponsors`) to the right pages.
+- **Event listing data:** the home page has schema.org `SportsEvent` data (dates, venues, entry, organizer) so the tournament can appear in Google's event results; `schedule-rules.html` has each day as its own event. **When dates, venues or the year change, update the JSON-LD in those two pages too.** Check it with Google's [Rich Results Test](https://search.google.com/test/rich-results).
+- **`sitemap.xml` and `robots.txt`:** list the pages for search engines and keep `/api/` out of results. Update `lastmod` in the sitemap when a page changes substantially.
+- **Link previews:** Open Graph and Twitter tags on every page use `images/logo/hfh-share-1200x630.jpg`.
+- **`404.html`:** friendly "page not found" page (not indexed).
+- **Google Search Console:** add `hoops4hunger.com` as a property, verify it with the DNS TXT record Google gives you (in hPanel → DNS), then submit `https://hoops4hunger.com/sitemap.xml`.
+
 ## Logo
 
 Files in `images/logo/`:
