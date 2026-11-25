@@ -1,5 +1,5 @@
 # Block direct web access to private settings and samples
-<FilesMatch "^(config.*\.php|.*\.log)$">
+<FilesMatch "^(config.*\.php|teams-lib\.php|.*\.log|.*\.json)$">
   Require all denied
 </FilesMatch>
 Options -Indexes

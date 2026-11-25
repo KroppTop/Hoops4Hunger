@@ -113,13 +113,16 @@
           </article>
           <article class="card">
             <h3>Current Entrants</h3>
-            <ul class="team-list">
-              <li>Shrek</li>
-              <li>Team Perspiration</li>
-              <li>The Golden Girls</li>
-              <li>Triple Threat</li>
-            </ul>
-            <p>Locked in. Many more to follow.</p>
+            <!-- Filled in live from api/teams.php; this list shows if that can't load. -->
+            <div id="entrants" aria-live="polite">
+              <ul class="team-list">
+                <li>Shrek</li>
+                <li>Team Perspiration</li>
+                <li>The Golden Girls</li>
+                <li>Triple Threat</li>
+              </ul>
+            </div>
+            <p id="entrants-note">Locked in. Many more to follow.</p>
           </article>
         </div>
       </div>

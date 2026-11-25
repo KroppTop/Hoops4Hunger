@@ -2,3 +2,4 @@
 api/config.php
 h4h-config.php
 api/*.log
+api/data/

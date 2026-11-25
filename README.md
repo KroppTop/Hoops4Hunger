@@ -24,7 +24,7 @@ Fonts do not load when a page is opened directly from disk; use the local server
 
 ## Common updates
 
-- **Registered teams:** edit the `team-list` in `index.html`.
+- **Registered teams:** added automatically when a team registers, and shown live under Current Entrants (first 5, the rest in a "See all" dropdown). The list lives in `api/data/teams.json` on the server; edit or remove a team there in hPanel's File Manager. The four teams written in `index.html` show only if the live list can't load.
 - **Sponsors:** copy a `sponsor` card in `sponsors.html` and add the logo to `images/`.
 - **Dates / deadline:** the "Sign up before April 7!" banner and the dates appear on every page; search for `April` to find them.
 - **Header and footer:** repeated in all four pages, so change them in each file.

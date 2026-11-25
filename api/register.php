@@ -12,6 +12,8 @@
 
 declare(strict_types=1);
 
+require __DIR__ . '/teams-lib.php';
+
 date_default_timezone_set('America/Chicago'); // Berlin, WI
 
 // ---------- Config ----------
@@ -225,6 +227,11 @@ if (!$mailOk) {
 if (!$mailOk && !$reachOk) {
     respond(false, 'Sorry, we could not save your registration. Please email hello@hoops4hunger.com or call (920) 658-3029.', 500);
 }
+// Show the team on the home page's Current Entrants list.
+if (!teams_add($team) && !in_array(mb_strtolower($team), array_map(fn($t) => mb_strtolower((string)$t['name']), teams_read()), true)) {
+    error_log('[hoops4hunger] Could not add team to list: ' . $team);
+}
+
 respond(true, "Thanks, $captain! $team is registered. Remember to bring one paper bag of nonperishable food to check-in.", 200, [
     'reach' => $reachOk,
     'email' => $mailOk,

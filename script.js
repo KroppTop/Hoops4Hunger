@@ -21,6 +21,50 @@ if (toggle && links) {
   });
 }
 
+// Current Entrants: load registered team names live from the server.
+// Shows the first few, with the rest in a "See all" dropdown.
+const entrants = document.getElementById("entrants");
+if (entrants) {
+  const VISIBLE = 5;
+  const makeList = (names) => {
+    const ul = document.createElement("ul");
+    ul.className = "team-list";
+    names.forEach((name) => {
+      const li = document.createElement("li");
+      li.textContent = name; // textContent: team names are shown as plain text, never HTML
+      ul.appendChild(li);
+    });
+    return ul;
+  };
+
+  fetch("api/teams.php", { headers: { Accept: "application/json" }, cache: "no-store" })
+    .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+    .then(({ teams }) => {
+      if (!Array.isArray(teams) || teams.length === 0) return;
+      entrants.replaceChildren(makeList(teams.slice(0, VISIBLE)));
+      if (teams.length > VISIBLE) {
+        const more = document.createElement("details");
+        more.className = "team-more";
+        const summary = document.createElement("summary");
+        summary.textContent = `See all ${teams.length} teams`;
+        more.append(summary, makeList(teams.slice(VISIBLE)));
+        more.addEventListener("toggle", () => {
+          summary.textContent = more.open ? "Show fewer" : `See all ${teams.length} teams`;
+        });
+        entrants.appendChild(more);
+      }
+      const note = document.getElementById("entrants-note");
+      if (note) {
+        note.innerHTML = "";
+        const count = document.createElement("span");
+        count.className = "team-count";
+        count.textContent = `${teams.length} ${teams.length === 1 ? "team" : "teams"}`;
+        note.append(count, " locked in. Many more to follow.");
+      }
+    })
+    .catch(() => { /* keep the list written in the page */ });
+}
+
 // Registration form: posts to api/register.php, which emails the organizers
 // and adds the captain to Hostinger Reach.
 const form = document.getElementById("register-form");
