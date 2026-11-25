@@ -1,5 +1,6 @@
-// Registrations from the form are emailed to this address.
+// Registration questions go here if the online form can't be reached.
 const CONTACT_EMAIL = "hello@hoops4hunger.com";
+const CONTACT_PHONE = "(920) 658-3029";
 
 // Footer year
 document.querySelectorAll("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
@@ -20,25 +21,29 @@ if (toggle && links) {
   });
 }
 
-// Registration form: validate, then open a pre-filled email to the organizers
+// Registration form: posts to api/register.php, which emails the organizers
+// and adds the captain to Hostinger Reach.
 const form = document.getElementById("register-form");
 if (form) {
   const status = document.getElementById("form-status");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    let valid = true;
-    form.querySelectorAll("[required]").forEach((field) => {
-      const ok = field.checkValidity();
-      field.classList.toggle("invalid", !ok);
-      if (!ok) valid = false;
-    });
-    if (!valid) {
-      status.textContent = "Please fill in the highlighted fields.";
-      status.className = "form-status error";
-      form.querySelector(".invalid").focus();
-      return;
-    }
-    const d = new FormData(form);
+  const button = document.getElementById("submit-btn");
+  const buttonLabel = button.textContent;
+
+  const show = (text, kind, html = false) => {
+    status[html ? "innerHTML" : "textContent"] = text;
+    status.className = `form-status ${kind}`;
+  };
+
+  // Result of a no-JavaScript submission redirected back here
+  const params = new URLSearchParams(location.search);
+  if (params.get("status") === "ok") {
+    show("Thanks! Your team is registered. Remember to bring one paper bag of nonperishable food to check-in.", "ok");
+  } else if (params.get("status") === "error") {
+    show(params.get("msg") || "Something went wrong. Please try again.", "error");
+  }
+
+  // Build a pre-filled email as a backup if the server can't be reached
+  const mailtoBackup = (d) => {
     const body = [
       `Team Name: ${d.get("team")}`,
       `Captain's Name: ${d.get("captain")}`,
@@ -48,9 +53,60 @@ if (form) {
       "Individual Player Heights:",
       d.get("heights") || "(not provided)",
     ].join("\n");
-    const subject = `Hoops for Hunger Registration: ${d.get("team")}`;
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    status.textContent = "Thanks! Your email app should open with your registration ready to send.";
-    status.className = "form-status ok";
+    return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Team Registration: ${d.get("team")}`)}&body=${encodeURIComponent(body)}`;
+  };
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    let valid = true;
+    form.querySelectorAll("[required]").forEach((field) => {
+      const ok = field.checkValidity();
+      field.classList.toggle("invalid", !ok);
+      if (!ok) valid = false;
+    });
+    if (!valid) {
+      show("Please fill in the highlighted fields.", "error");
+      form.querySelector(".invalid").focus();
+      return;
+    }
+
+    const data = new FormData(form);
+    button.disabled = true;
+    button.textContent = "Submitting…";
+    show("", "");
+
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json", "X-Requested-With": "fetch" },
+      });
+      let result = null;
+      try { result = await res.json(); } catch { /* not JSON: handler not available */ }
+
+      if (result && result.ok) {
+        show(result.message, "ok");
+        form.reset();
+      } else if (result) {
+        show(result.message || "Something went wrong. Please try again.", "error");
+      } else {
+        throw new Error(`Unexpected response (${res.status})`);
+      }
+    } catch (err) {
+      // Server unreachable: let them send it by email instead
+      show(
+        `We couldn't submit the form right now. <a href="${mailtoBackup(data)}">Send your registration by email</a> or call ${CONTACT_PHONE}.`,
+        "error",
+        true,
+      );
+    } finally {
+      button.disabled = false;
+      button.textContent = buttonLabel;
+    }
+  });
+
+  form.querySelectorAll("[required]").forEach((field) => {
+    field.addEventListener("input", () => field.classList.remove("invalid"));
   });
 }

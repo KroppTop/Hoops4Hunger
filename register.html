@@ -51,28 +51,29 @@
           <p class="lead">Fill out the captain contacts and individual player heights below. Heights are used strictly to calculate average squad height for initial Day 1 qualifier seeding.</p>
         </div>
         <div class="register-grid">
-          <form class="form" id="register-form" novalidate>
+          <form class="form" id="register-form" action="api/register.php" method="post" novalidate>
+            <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
             <div class="form-row">
               <label><span>Team Name <span class="req">*</span></span>
-                <input type="text" name="team" required autocomplete="off">
+                <input type="text" name="team" required maxlength="80" autocomplete="off">
               </label>
               <label><span>Captain's Name <span class="req">*</span></span>
-                <input type="text" name="captain" required autocomplete="name">
+                <input type="text" name="captain" required maxlength="80" autocomplete="name">
               </label>
             </div>
             <div class="form-row">
               <label><span>Email Address <span class="req">*</span></span>
-                <input type="email" name="email" required autocomplete="email">
+                <input type="email" name="email" required maxlength="160" autocomplete="email">
               </label>
               <label><span>Phone Number <span class="req">*</span></span>
-                <input type="tel" name="phone" required autocomplete="tel">
+                <input type="tel" name="phone" required maxlength="40" autocomplete="tel" placeholder="(920) 555-0123">
               </label>
             </div>
             <label>Individual Player Heights
               <span class="hint">One player per line, e.g. John Smith – 6′1″. Up to 4 players.</span>
-              <textarea name="heights" rows="5"></textarea>
+              <textarea name="heights" rows="5" maxlength="600"></textarea>
             </label>
-            <button type="submit" class="btn">Submit Registration</button>
+            <button type="submit" class="btn" id="submit-btn">Submit Registration</button>
             <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           </form>
           <aside class="card side-card">

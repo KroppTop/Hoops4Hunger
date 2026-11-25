@@ -1,0 +1,5 @@
+# Block direct web access to private settings and samples
+<FilesMatch "^(config.*\.php)$">
+  Require all denied
+</FilesMatch>
+Options -Indexes

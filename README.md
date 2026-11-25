@@ -29,9 +29,28 @@ Fonts do not load when a page is opened directly from disk; use the local server
 - **Dates / deadline:** the "Sign up before April 7!" banner and the dates appear on every page; search for `April` to find them.
 - **Header and footer:** repeated in all four pages, so change them in each file.
 
-## How registration works
+## Turning on the registration form
 
-The site has no server, so **Submit Registration** opens the visitor's email app with a message to hello@hoops4hunger.com containing the team name, captain, email, phone and player heights. To collect submissions without email, point the form at a form service such as Formspree, Netlify Forms or a Google Form.
+When a team submits the form, `api/register.php`:
+
+1. Adds the captain to **Hostinger Reach** as a contact (name, email, phone, plus a note with the team name and player heights).
+2. Emails the full registration to **hello@hoops4hunger.com**, with Reply-To set to the captain, and says whether the Reach step worked.
+3. Shows the captain a confirmation message.
+
+If Reach is down or rejects the contact, the registration still goes through and the email tells you to add them by hand. If the server can't be reached at all, the form offers a pre-filled email instead.
+
+### Setup (one time)
+
+1. **Host the site on Hostinger web hosting** (a plan with PHP, such as Premium or Business). Upload everything in this repository to `public_html` using hPanel's File Manager, or connect this GitHub repository with hPanel's Git deployment. A Website Builder-only plan can't run `api/register.php`.
+2. **Create the mailbox** hello@hoops4hunger.com in Hostinger Email if it doesn't exist, so registration emails are sent from your own domain.
+3. **Generate a Hostinger API token** in hPanel (Hostinger's guide: [How to use the Reach public API](https://www.hostinger.com/support/?p=20452)).
+4. **Create the private settings file.** Copy `api/config.sample.php` to `h4h-config.php` in the folder **above** `public_html` and paste in your token. (`api/config.php` also works; `api/.htaccess` blocks it from the web.) Never commit this file; `.gitignore` already excludes it.
+5. **Optional:** to tag registrants in Reach (e.g. "2027 Teams"), put the tag's UUID in `reach_tag_uuids`.
+6. **Test it:** submit a registration with your own email, then check your inbox (and spam folder, the first time) and your Reach contacts.
+
+If double opt-in is turned on in Reach, captains get a confirmation email and show as "pending" until they confirm.
+
+Server errors are written to the PHP error log in hPanel, prefixed with `[hoops4hunger]`.
 
 ## Preview locally
 
@@ -41,6 +60,6 @@ python3 -m http.server 8000
 
 then visit http://localhost:8000.
 
-## Publishing with GitHub Pages
+## Hosting
 
-In the repository on GitHub, go to **Settings → Pages**, choose **Deploy from a branch**, pick the branch and `/ (root)`, and save. To use hoops4hunger.com, add the domain under **Custom domain** and point the domain's DNS at GitHub Pages.
+Host the site on Hostinger web hosting (see setup above) so the registration form can run. Static hosts such as GitHub Pages can show the pages, but there the form falls back to opening an email instead of submitting.
