@@ -159,8 +159,8 @@ if (strlen(preg_replace('/\D+/', '', $phone) ?? '') < 7) {
 // ---------- 1. Add captain to Hostinger Reach ----------
 $nameParts = preg_split('/\s+/', $captain, 2) ?: [$captain];
 $e164 = toE164($phone);
-$note = "Hoops for Hunger registration\nTeam: $team\nPhone: $phone"
-    . ($heights !== '' ? "\nPlayer heights:\n$heights" : '');
+// Reach limits the note to 75 characters; heights and the rest go in the email.
+$note = mb_substr("Hoops for Hunger team: $team", 0, 75);
 
 $contact = array_filter([
     'email'     => $email,

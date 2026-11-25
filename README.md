@@ -33,7 +33,7 @@ Fonts do not load when a page is opened directly from disk; use the local server
 
 When a team submits the form, `api/register.php`:
 
-1. Adds the captain to **Hostinger Reach** as a contact (name, email, phone, plus a note with the team name and player heights).
+1. Adds the captain to **Hostinger Reach** as a contact (name, email, phone, and a note with the team name; Reach limits notes to 75 characters, so player heights are in the email only).
 2. Emails the full registration to **hello@hoops4hunger.com**, with Reply-To set to the captain, and says whether the Reach step worked.
 3. Shows the captain a confirmation message.
 
