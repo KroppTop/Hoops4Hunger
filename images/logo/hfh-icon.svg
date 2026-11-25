@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Hoops for Hunger icon"><title>Hoops for Hunger icon</title><rect width="512" height="512" rx="112" fill="#0b1424"/><g>
+  <clipPath id="clip-ic"><circle cx="256" cy="256" r="190"/></clipPath>
+  <circle cx="256" cy="256" r="190" fill="#e8b64c"/>
+  <g clip-path="url(#clip-ic)" stroke="#0b1424" stroke-width="17.00" fill="none" stroke-linecap="round">
+    <path d="M256 66 V446"/>
+    <path d="M74.75 199.00 H437.25"/>
+    <path d="M119.20 119.20 Q214.20 265.50 119.20 404.20"/>
+    <path d="M392.80 119.20 Q297.80 265.50 392.80 404.20"/>
+  </g>
+  <circle cx="256" cy="256" r="181.50" fill="none" stroke="#0b1424" stroke-width="17.00"/>
+</g></svg>
