@@ -3,211 +3,153 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hoops4Hunger — Play Ball. Feed Neighbors.</title>
-  <meta name="description" content="Hoops4Hunger is a community basketball tournament where every bucket helps put food on the table for families in need.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23f26b1d'/%3E%3Cpath d='M2 32h60M32 2v60M11 11c12 10 12 32 0 42M53 11c-12 10-12 32 0 42' stroke='%231b1f3b' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+  <title>Hoops for Hunger 3v3 Challenge | St. John Lutheran Charity Basketball Event</title>
+  <meta name="description" content="Join the St. John Lutheran Hoops for Hunger 3v3 Challenge in Berlin, WI. Fast-paced basketball, community impact, and all proceeds supporting local families facing food insecurity. Register your team today.">
+  <meta property="og:title" content="St. John Hoops for Hunger 3v3 Challenge">
+  <meta property="og:description" content="3v3 charity basketball tournament in Berlin, WI benefiting the Berlin Food Pantry.">
+  <meta property="og:image" content="images/logo.png">
+  <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="nav" id="top">
+  <a class="announce" href="register.html">Sign up before April 7!</a>
+  <header class="nav">
     <div class="container nav-inner">
-      <a href="#top" class="logo" aria-label="Hoops4Hunger home">
-        <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="currentColor"/><path d="M2 32h60M32 2v60M11 11c12 10 12 32 0 42M53 11c-12 10-12 32 0 42" stroke="var(--ink)" stroke-width="3" fill="none"/></svg>
-        <span class="wordmark">Hoops<span>4</span>Hunger</span>
-      </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="index.html" class="brand"><img src="images/logo.png" alt="St. John Lutheran Hoops for Hunger 3v3 Challenge logo"><span>Hoops for<br>Hunger</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span></span><span></span><span></span></button>
       <nav id="nav-links" class="nav-links">
-        <a href="#mission">Mission</a>
-        <a href="#event">Event</a>
-        <a href="#how">How it works</a>
-        <a href="#faq">FAQ</a>
-        <a href="#register" class="btn btn-small">Register</a>
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="schedule-rules.html">Schedule &amp; Rules</a>
+        <a href="register.html">Register</a>
+        <a href="sponsors.html">Sponsors</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <p class="eyebrow">Community 3-on-3 Tournament</p>
-          <h1>Every bucket<br>feeds a <em>neighbor.</em></h1>
-          <p class="lead">Hoops4Hunger brings players, families and local businesses together on the court to fight food insecurity in our community. Lace up, show up, and help fill the shelves.</p>
-          <div class="hero-actions">
-            <a href="#register" class="btn">Register a team</a>
-            <a href="#donate" class="btn btn-ghost">Donate</a>
-          </div>
-        </div>
-        <div class="hero-card" aria-label="Fundraising progress">
-          <p class="card-label">Meals raised so far</p>
-          <p class="big-number" id="meals-count">0</p>
-          <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-            <div class="progress-bar" id="progress-bar"></div>
-          </div>
-          <p class="card-foot">Goal: <strong id="meals-goal">0</strong> meals</p>
+      <div class="container center">
+        <p class="eyebrow">3v3 Charity Tournament • Berlin, WI</p>
+        <h1>St. John<br><span class="accent">Hoops for Hunger</span></h1>
+        <p class="lead">Help us hit our 1,000 lbs donation target for the Berlin Food Pantry. Bring your squad, pack nonperishable items, and compete for $1,000 in total cash prizes.</p>
+        <div class="btn-row">
+          <a href="register.html" class="btn">Register Your Team</a>
+          <a href="schedule-rules.html" class="btn btn-outline">Schedule &amp; Rules</a>
         </div>
       </div>
     </section>
 
-    <!-- STATS -->
-    <section class="stats">
-      <div class="container stats-grid">
-        <div><p class="stat" data-stat="teams">0</p><p>Teams registered</p></div>
-        <div><p class="stat" data-stat="pounds">0</p><p>Pounds of food collected</p></div>
-        <div><p class="stat" data-stat="volunteers">0</p><p>Volunteers on deck</p></div>
-      </div>
-    </section>
-
-    <!-- MISSION -->
-    <section id="mission" class="section">
-      <div class="container split">
-        <div>
-          <p class="eyebrow">Our mission</p>
-          <h2>Basketball is a team sport. So is ending hunger.</h2>
-        </div>
-        <div class="prose">
-          <p>Too many families in our area don't know where their next meal is coming from. Hoops4Hunger turns a day of friendly competition into real food for real people.</p>
-          <p>Every team entry fee, every donated can and every dollar raised goes to our local food bank partners, so the food stays right here in the neighborhood.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- EVENT -->
-    <section id="event" class="section section-alt">
+    <section class="section section-raised">
       <div class="container">
-        <p class="eyebrow">The event</p>
-        <h2>Game day details</h2>
-        <!-- EDIT: replace the placeholder date, time and venue below -->
+        <div class="section-head center">
+          <p class="eyebrow">Cash Purse Breakdown</p>
+          <h2>One Thousand Cash Purse</h2>
+        </div>
+        <div class="purse">
+          <div class="purse-item"><p class="purse-amount">$500</p><p class="purse-label">1st Place Champions</p></div>
+          <div class="purse-item"><p class="purse-amount">$200</p><p class="purse-label">2nd Place Finalists</p></div>
+          <div class="purse-item"><p class="purse-amount">$150</p><p class="purse-label">3rd Place Finishers</p></div>
+          <div class="purse-item"><p class="purse-amount">$100</p><p class="purse-label">4th Place Finishers</p></div>
+          <div class="purse-item"><p class="purse-amount">$50</p><p class="purse-label">5th Place Finishers</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Tournament Structure</p>
+          <h2>Two Days of Tournament Hoops</h2>
+          <p class="lead">Qualifiers start April 10 at the Boys &amp; Girls Club, leading to Championship Saturday on April 17 at St. John Gym. Entry requires one bag of food per team.</p>
+        </div>
         <div class="cards">
           <article class="card">
-            <h3>When</h3>
-            <p class="card-big">Date TBA</p>
-            <p>Check-in 8:30 AM · Tip-off 9:00 AM</p>
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
+            <h3>Day 1: Qualifier Round</h3>
+            <p>April 10 at Boys &amp; Girls Club of Tri-County. Double elimination half-court timed games. The top twelve squads advance directly to Championship Saturday.</p>
           </article>
           <article class="card">
-            <h3>Where</h3>
-            <p class="card-big">Venue TBA</p>
-            <p>Address coming soon</p>
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></div>
+            <h3>Day 2: Championship Saturday</h3>
+            <p>April 17 at St. John Lutheran School Gym. Full-court single elimination tournament for qualifying teams competing for top cash prizes and trophies.</p>
           </article>
           <article class="card">
-            <h3>Divisions</h3>
-            <p class="card-big">Youth · Adult · Open</p>
-            <p>3-on-3, half court, games to 21</p>
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg></div>
+            <h3>1,000 Lbs Food Objective</h3>
+            <p>One paper bag of nonperishable food items per squad collected at check-in. All donations go directly to support families through the Berlin Food Pantry.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section id="how" class="section">
+    <section class="section section-raised">
       <div class="container">
-        <p class="eyebrow">How it works</p>
-        <h2>Three ways to get in the game</h2>
-        <ol class="steps">
-          <li>
-            <span class="step-num">01</span>
-            <h3>Play</h3>
-            <p>Grab two or three friends and register a team. Your entry fee goes straight to fighting hunger.</p>
-          </li>
-          <li>
-            <span class="step-num">02</span>
-            <h3>Bring</h3>
-            <p>Bring non-perishable food on game day. Canned goods, pasta, rice, peanut butter and cereal are always needed.</p>
-          </li>
-          <li>
-            <span class="step-num">03</span>
-            <h3>Give</h3>
-            <p>Can't play? Donate, volunteer, or cheer from the sidelines. Every bit counts toward the goal.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- REGISTER + DONATE -->
-    <section id="register" class="section section-dark">
-      <div class="container split">
-        <div>
-          <p class="eyebrow">Register</p>
-          <h2>Sign up your team</h2>
-          <p>Fill this out and we'll follow up with confirmation and game-day details.</p>
-          <div id="donate" class="donate-box">
-            <h3>Want to donate instead?</h3>
-            <p>Every $1 helps provide meals for neighbors in need.</p>
-            <!-- EDIT: point this link at your donation page (e.g. a GoFundMe, Givebutter or PayPal link) -->
-            <a href="#" class="btn" id="donate-link">Donate now</a>
-          </div>
+        <div class="section-head">
+          <p class="eyebrow">Registered Field</p>
+          <h2>Registered Squads Roster</h2>
         </div>
-        <form class="form" id="register-form" novalidate>
-          <label>Team name
-            <input type="text" name="team" required autocomplete="off">
-          </label>
-          <label>Captain's name
-            <input type="text" name="captain" required autocomplete="name">
-          </label>
-          <label>Email
-            <input type="email" name="email" required autocomplete="email">
-          </label>
-          <label>Division
-            <select name="division" required>
-              <option value="">Choose one…</option>
-              <option>Youth (under 16)</option>
-              <option>Adult (16+)</option>
-              <option>Open</option>
-            </select>
-          </label>
-          <label>Players (names, one per line)
-            <textarea name="players" rows="4"></textarea>
-          </label>
-          <button type="submit" class="btn btn-full">Send registration</button>
-          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-        </form>
+        <div class="roster">
+          <article class="card card-feature">
+            <h3>Championship Bracket</h3>
+            <p>Twelve qualification spots open across Day 1 qualifiers. Initial bracket seeding is based on each team’s average height, with sign-up order used as well.</p>
+          </article>
+          <article class="card">
+            <h3>Current Entrants</h3>
+            <ul class="team-list">
+              <li>Shrek</li>
+              <li>Team Perspiration</li>
+              <li>The Golden Girls</li>
+              <li>Triple Threat</li>
+            </ul>
+            <p>Locked in. Many more to follow.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section">
-      <div class="container narrow">
-        <p class="eyebrow">FAQ</p>
-        <h2>Questions? We've got answers.</h2>
-        <details>
-          <summary>Who can play?</summary>
-          <p>Everyone! We have youth, adult and open divisions so players of every age and skill level can join in.</p>
-        </details>
-        <details>
-          <summary>How many players are on a team?</summary>
-          <p>Three on the court, with up to one substitute, so register teams of three or four.</p>
-        </details>
-        <details>
-          <summary>Where does the money go?</summary>
-          <p>All proceeds and food donations go directly to our local food bank partners.</p>
-        </details>
-        <details>
-          <summary>What food should I bring?</summary>
-          <p>Non-perishable, unexpired items: canned vegetables, soups, beans and tuna, plus pasta, rice, peanut butter and cereal. Please no glass jars.</p>
-        </details>
-        <details>
-          <summary>Can I volunteer?</summary>
-          <p>Absolutely. We need scorekeepers, refs, check-in help and food sorters. Reach out using the contact link below.</p>
-        </details>
+    <section class="section cta-band">
+      <div class="container">
+        <p class="eyebrow">Register Your Team</p>
+        <h2>Claim Your Bracket Spot</h2>
+        <p>Secure your tournament spot before qualifier brackets fill up. Bring your paper bag of nonperishable food items on game day and leave everything on the court.</p>
+        <div class="btn-row" style="justify-content:center"><a href="register.html" class="btn btn-light">Register Your Team</a></div>
       </div>
     </section>
   </main>
 
+  <div class="goal-strip" aria-hidden="true"><div class="goal-track"><span>1,000 LBS FOOD PANTRY GOAL</span><span>•</span><span>1,000 LBS FOOD PANTRY GOAL</span><span>•</span><span>1,000 LBS FOOD PANTRY GOAL</span><span>•</span><span>1,000 LBS FOOD PANTRY GOAL</span><span>•</span><span>1,000 LBS FOOD PANTRY GOAL</span><span>•</span><span>1,000 LBS FOOD PANTRY GOAL</span><span>•</span><span>1,000 LBS FOOD PANTRY GOAL</span><span>•</span><span>1,000 LBS FOOD PANTRY GOAL</span><span>•</span></div></div>
   <footer class="footer">
-    <div class="container footer-inner">
-      <p class="logo logo-footer"><span class="wordmark">Hoops<span>4</span>Hunger</span></p>
-      <!-- EDIT: replace with your real contact email -->
-      <p>Questions or sponsorship? <a href="mailto:hello@example.com" id="contact-link">hello@example.com</a></p>
-      <p class="small">&copy; <span id="year"></span> Hoops4Hunger. Play ball. Feed neighbors.</p>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand"><img src="images/logo.png" alt=""><span>St. John<br>Hoops for Hunger</span></a>
+          <p>Grassroots hoops for a heavy-hitting community cause in Berlin, WI.</p>
+        </div>
+        <div>
+          <h3>Tournament</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="schedule-rules.html">Schedule &amp; Rules</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="sponsors.html">Sponsors</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Event Contact</h3>
+          <ul>
+            <li><a href="tel:+19206583029">(920) 658-3029</a></li>
+            <li><a href="mailto:hello@hoops4hunger.com">hello@hoops4hunger.com</a></li>
+            <li>Beneficiary: Berlin Food Pantry</li>
+            <li>Berlin, WI 54923</li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">© <span data-year>2026</span> St. John Hoops for Hunger. Hosted by St. John's Men's Rec League in Berlin, WI.</p>
     </div>
   </footer>
-
   <script src="script.js"></script>
 </body>
 </html>
