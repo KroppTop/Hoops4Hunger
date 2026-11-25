@@ -32,6 +32,12 @@ Fonts do not load when a page is opened directly from disk; use the local server
 - **`404.html`:** friendly "page not found" page (not indexed).
 - **Google Search Console:** add `hoops4hunger.com` as a property, verify it with the DNS TXT record Google gives you (in hPanel → DNS), then submit `https://hoops4hunger.com/sitemap.xml`.
 
+## Registration confirmation email (Hostinger Reach)
+
+`emails/registration-confirmation.html` is the welcome email Reach sends to each new contact (every team captain who registers). It is stored in Reach as the template **"Registration Confirmation 2027"**. Reach's API can create templates but not edit them, so after changing this file, create a new template from it (or paste it into Reach's HTML editor) and select it in the automation's "Send email" step.
+
+Email rules: every text element sets its own `color` (many email apps don't inherit it), layout is tables with inline styles, images use absolute `https://hoops4hunger.com/...` URLs, and the `{{unsubscribe-link}}` tag must stay.
+
 ## Logo
 
 Files in `images/logo/`:
