@@ -83,7 +83,10 @@ function toE164(string $phone): ?string
 
 function addToReach(array $config, array $contact): array
 {
-    if ($config['reach_api_token'] === '') {
+    // Forgive common paste mistakes: surrounding whitespace/quotes or a "Bearer " prefix.
+    $token = trim((string)$config['reach_api_token'], " \t\n\r\0\x0B\"'");
+    $token = preg_replace('/^Bearer\s+/i', '', $token) ?? $token;
+    if ($token === '' || str_starts_with($token, 'PASTE-YOUR')) {
         return [false, 'Reach API token is not configured'];
     }
     $base = rtrim($config['reach_api_base'], '/');
@@ -96,7 +99,7 @@ function addToReach(array $config, array $contact): array
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_TIMEOUT        => 15,
         CURLOPT_HTTPHEADER     => [
-            'Authorization: Bearer ' . $config['reach_api_token'],
+            'Authorization: Bearer ' . $token,
             'Content-Type: application/json',
             'Accept: application/json',
         ],
@@ -171,6 +174,13 @@ $contact = array_filter([
 [$reachOk, $reachMsg] = addToReach($config, $contact);
 if (!$reachOk) {
     error_log('[hoops4hunger] Reach contact failed for ' . $email . ': ' . $reachMsg);
+    // Private log next to this file (blocked from the web by api/.htaccess).
+    // Records the error and the token's shape only, never the token itself.
+    $raw = (string)$config['reach_api_token'];
+    $shape = sprintf('token length %d, has whitespace: %s, has "Bearer": %s',
+        strlen($raw), preg_match('/\s/', $raw) ? 'yes' : 'no', stripos($raw, 'bearer') !== false ? 'yes' : 'no');
+    @file_put_contents(__DIR__ . '/reach-errors.log',
+        date('c') . "  $reachMsg  ($shape)\n", FILE_APPEND | LOCK_EX);
 }
 
 // ---------- 2. Email the organizers ----------

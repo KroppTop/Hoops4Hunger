@@ -1,3 +1,4 @@
 # Private settings with the Hostinger API token
 api/config.php
 h4h-config.php
+api/*.log
