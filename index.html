@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hoops4Hunger — Play Ball. Feed Neighbors.</title>
+  <meta name="description" content="Hoops4Hunger is a community basketball tournament where every bucket helps put food on the table for families in need.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23f26b1d'/%3E%3Cpath d='M2 32h60M32 2v60M11 11c12 10 12 32 0 42M53 11c-12 10-12 32 0 42' stroke='%231b1f3b' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav" id="top">
+    <div class="container nav-inner">
+      <a href="#top" class="logo" aria-label="Hoops4Hunger home">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="currentColor"/><path d="M2 32h60M32 2v60M11 11c12 10 12 32 0 42M53 11c-12 10-12 32 0 42" stroke="var(--ink)" stroke-width="3" fill="none"/></svg>
+        <span class="wordmark">Hoops<span>4</span>Hunger</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-links" class="nav-links">
+        <a href="#mission">Mission</a>
+        <a href="#event">Event</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#register" class="btn btn-small">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Community 3-on-3 Tournament</p>
+          <h1>Every bucket<br>feeds a <em>neighbor.</em></h1>
+          <p class="lead">Hoops4Hunger brings players, families and local businesses together on the court to fight food insecurity in our community. Lace up, show up, and help fill the shelves.</p>
+          <div class="hero-actions">
+            <a href="#register" class="btn">Register a team</a>
+            <a href="#donate" class="btn btn-ghost">Donate</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="Fundraising progress">
+          <p class="card-label">Meals raised so far</p>
+          <p class="big-number" id="meals-count">0</p>
+          <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+          <p class="card-foot">Goal: <strong id="meals-goal">0</strong> meals</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+      <div class="container stats-grid">
+        <div><p class="stat" data-stat="teams">0</p><p>Teams registered</p></div>
+        <div><p class="stat" data-stat="pounds">0</p><p>Pounds of food collected</p></div>
+        <div><p class="stat" data-stat="volunteers">0</p><p>Volunteers on deck</p></div>
+      </div>
+    </section>
+
+    <!-- MISSION -->
+    <section id="mission" class="section">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Our mission</p>
+          <h2>Basketball is a team sport. So is ending hunger.</h2>
+        </div>
+        <div class="prose">
+          <p>Too many families in our area don't know where their next meal is coming from. Hoops4Hunger turns a day of friendly competition into real food for real people.</p>
+          <p>Every team entry fee, every donated can and every dollar raised goes to our local food bank partners, so the food stays right here in the neighborhood.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT -->
+    <section id="event" class="section section-alt">
+      <div class="container">
+        <p class="eyebrow">The event</p>
+        <h2>Game day details</h2>
+        <!-- EDIT: replace the placeholder date, time and venue below -->
+        <div class="cards">
+          <article class="card">
+            <h3>When</h3>
+            <p class="card-big">Date TBA</p>
+            <p>Check-in 8:30 AM · Tip-off 9:00 AM</p>
+          </article>
+          <article class="card">
+            <h3>Where</h3>
+            <p class="card-big">Venue TBA</p>
+            <p>Address coming soon</p>
+          </article>
+          <article class="card">
+            <h3>Divisions</h3>
+            <p class="card-big">Youth · Adult · Open</p>
+            <p>3-on-3, half court, games to 21</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2>Three ways to get in the game</h2>
+        <ol class="steps">
+          <li>
+            <span class="step-num">01</span>
+            <h3>Play</h3>
+            <p>Grab two or three friends and register a team. Your entry fee goes straight to fighting hunger.</p>
+          </li>
+          <li>
+            <span class="step-num">02</span>
+            <h3>Bring</h3>
+            <p>Bring non-perishable food on game day. Canned goods, pasta, rice, peanut butter and cereal are always needed.</p>
+          </li>
+          <li>
+            <span class="step-num">03</span>
+            <h3>Give</h3>
+            <p>Can't play? Donate, volunteer, or cheer from the sidelines. Every bit counts toward the goal.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- REGISTER + DONATE -->
+    <section id="register" class="section section-dark">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Register</p>
+          <h2>Sign up your team</h2>
+          <p>Fill this out and we'll follow up with confirmation and game-day details.</p>
+          <div id="donate" class="donate-box">
+            <h3>Want to donate instead?</h3>
+            <p>Every $1 helps provide meals for neighbors in need.</p>
+            <!-- EDIT: point this link at your donation page (e.g. a GoFundMe, Givebutter or PayPal link) -->
+            <a href="#" class="btn" id="donate-link">Donate now</a>
+          </div>
+        </div>
+        <form class="form" id="register-form" novalidate>
+          <label>Team name
+            <input type="text" name="team" required autocomplete="off">
+          </label>
+          <label>Captain's name
+            <input type="text" name="captain" required autocomplete="name">
+          </label>
+          <label>Email
+            <input type="email" name="email" required autocomplete="email">
+          </label>
+          <label>Division
+            <select name="division" required>
+              <option value="">Choose one…</option>
+              <option>Youth (under 16)</option>
+              <option>Adult (16+)</option>
+              <option>Open</option>
+            </select>
+          </label>
+          <label>Players (names, one per line)
+            <textarea name="players" rows="4"></textarea>
+          </label>
+          <button type="submit" class="btn btn-full">Send registration</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="container narrow">
+        <p class="eyebrow">FAQ</p>
+        <h2>Questions? We've got answers.</h2>
+        <details>
+          <summary>Who can play?</summary>
+          <p>Everyone! We have youth, adult and open divisions so players of every age and skill level can join in.</p>
+        </details>
+        <details>
+          <summary>How many players are on a team?</summary>
+          <p>Three on the court, with up to one substitute, so register teams of three or four.</p>
+        </details>
+        <details>
+          <summary>Where does the money go?</summary>
+          <p>All proceeds and food donations go directly to our local food bank partners.</p>
+        </details>
+        <details>
+          <summary>What food should I bring?</summary>
+          <p>Non-perishable, unexpired items: canned vegetables, soups, beans and tuna, plus pasta, rice, peanut butter and cereal. Please no glass jars.</p>
+        </details>
+        <details>
+          <summary>Can I volunteer?</summary>
+          <p>Absolutely. We need scorekeepers, refs, check-in help and food sorters. Reach out using the contact link below.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="logo logo-footer"><span class="wordmark">Hoops<span>4</span>Hunger</span></p>
+      <!-- EDIT: replace with your real contact email -->
+      <p>Questions or sponsorship? <a href="mailto:hello@example.com" id="contact-link">hello@example.com</a></p>
+      <p class="small">&copy; <span id="year"></span> Hoops4Hunger. Play ball. Feed neighbors.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
