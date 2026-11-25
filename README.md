@@ -13,7 +13,14 @@ Plain HTML, CSS and JavaScript with no build step. The content mirrors the curre
 | `register.html` | Team registration form |
 | `sponsors.html` | Sponsor tiers and sponsorship contact |
 
-Shared files: `styles.css` (colors and fonts are the variables at the top), `script.js` (mobile menu and registration form), `images/`.
+Shared files: `styles.css` (colors and fonts are the variables at the top), `script.js` (mobile menu and registration form), `images/`, `fonts/`.
+
+## Fonts
+
+- **Headings:** Deutsch Gothic by J. Fordyce (1994), self-hosted in `fonts/`. Its license allows free distribution as long as the font file is unaltered and `DEUTSCH.TXT` stays with it, so keep both files as they are.
+- **Body text:** Barlow, with Barlow Condensed for labels, buttons and numbers (Google Fonts).
+
+Fonts do not load when a page is opened directly from disk; use the local server below to preview.
 
 ## Common updates
 

@@ -11,7 +11,8 @@
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/Deutsch.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -32,13 +33,19 @@
   <main>
     <section class="hero">
       <div class="container center">
+        <img class="hero-badge" src="images/logo.png" alt="St. John Lutheran Hoops for Hunger 3v3 Challenge, est. 2026">
         <p class="eyebrow">3v3 Charity Tournament • Berlin, WI</p>
-        <h1>St. John<br><span class="accent">Hoops for Hunger</span></h1>
+        <h1>St. John <span class="accent">Hoops for Hunger</span></h1>
         <p class="lead">Help us hit our 1,000 lbs donation target for the Berlin Food Pantry. Bring your squad, pack nonperishable items, and compete for $1,000 in total cash prizes.</p>
         <div class="btn-row">
           <a href="register.html" class="btn">Register Your Team</a>
           <a href="schedule-rules.html" class="btn btn-outline">Schedule &amp; Rules</a>
         </div>
+        <ul class="hero-facts">
+          <li><strong>April 10 &amp; 17</strong>Qualifiers &amp; Championship</li>
+          <li><strong>$1,000</strong>Total cash prizes</li>
+          <li><strong>1,000 lbs</strong>Food pantry goal</li>
+        </ul>
       </div>
     </section>
 
@@ -49,11 +56,16 @@
           <h2>One Thousand Cash Purse</h2>
         </div>
         <div class="purse">
-          <div class="purse-item"><p class="purse-amount">$500</p><p class="purse-label">1st Place Champions</p></div>
-          <div class="purse-item"><p class="purse-amount">$200</p><p class="purse-label">2nd Place Finalists</p></div>
-          <div class="purse-item"><p class="purse-amount">$150</p><p class="purse-label">3rd Place Finishers</p></div>
-          <div class="purse-item"><p class="purse-amount">$100</p><p class="purse-label">4th Place Finishers</p></div>
-          <div class="purse-item"><p class="purse-amount">$50</p><p class="purse-label">5th Place Finishers</p></div>
+          <div class="purse-item purse-first">
+            <svg class="trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3M12 14v4M8 21h8M9 18h6"/></svg>
+            <p class="purse-place">1st Place</p>
+            <p class="purse-amount">$500</p>
+            <p class="purse-label">Champions</p>
+          </div>
+          <div class="purse-item"><p class="purse-place">2nd Place</p><p class="purse-amount">$200</p><p class="purse-label">Finalists</p></div>
+          <div class="purse-item"><p class="purse-place">3rd Place</p><p class="purse-amount">$150</p><p class="purse-label">Finishers</p></div>
+          <div class="purse-item"><p class="purse-place">4th Place</p><p class="purse-amount">$100</p><p class="purse-label">Finishers</p></div>
+          <div class="purse-item"><p class="purse-place">5th Place</p><p class="purse-amount">$50</p><p class="purse-label">Finishers</p></div>
         </div>
       </div>
     </section>
@@ -68,16 +80,19 @@
         <div class="cards">
           <article class="card">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
+            <p class="card-meta">April 10</p>
             <h3>Day 1: Qualifier Round</h3>
             <p>April 10 at Boys &amp; Girls Club of Tri-County. Double elimination half-court timed games. The top twelve squads advance directly to Championship Saturday.</p>
           </article>
           <article class="card">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></div>
+            <p class="card-meta">April 17</p>
             <h3>Day 2: Championship Saturday</h3>
             <p>April 17 at St. John Lutheran School Gym. Full-court single elimination tournament for qualifying teams competing for top cash prizes and trophies.</p>
           </article>
           <article class="card">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg></div>
+            <p class="card-meta">Entry Fee</p>
             <h3>1,000 Lbs Food Objective</h3>
             <p>One paper bag of nonperishable food items per squad collected at check-in. All donations go directly to support families through the Berlin Food Pantry.</p>
           </article>
@@ -120,7 +135,7 @@
     </section>
   </main>
 
-  <div class="goal-strip" aria-hidden="true"><div class="goal-track"><span>1,000 LBS FOOD PANTRY GOAL</span><span>•</span><span>1,000 LBS FOOD PANTRY GOAL</span><span>•</span><span>1,000 LBS FOOD PANTRY GOAL</span><span>•</span><span>1,000 LBS FOOD PANTRY GOAL</span><span>•</span><span>1,000 LBS FOOD PANTRY GOAL</span><span>•</span><span>1,000 LBS FOOD PANTRY GOAL</span><span>•</span><span>1,000 LBS FOOD PANTRY GOAL</span><span>•</span><span>1,000 LBS FOOD PANTRY GOAL</span><span>•</span></div></div>
+  <div class="goal-strip" aria-hidden="true"><div class="goal-track"><span>1,000 Lbs Food Pantry Goal</span><span>•</span><span>1,000 Lbs Food Pantry Goal</span><span>•</span><span>1,000 Lbs Food Pantry Goal</span><span>•</span><span>1,000 Lbs Food Pantry Goal</span><span>•</span><span>1,000 Lbs Food Pantry Goal</span><span>•</span><span>1,000 Lbs Food Pantry Goal</span><span>•</span><span>1,000 Lbs Food Pantry Goal</span><span>•</span><span>1,000 Lbs Food Pantry Goal</span><span>•</span></div></div>
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
