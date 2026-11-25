@@ -36,6 +36,8 @@ Fonts do not load when a page is opened directly from disk; use the local server
 
 `emails/registration-confirmation.html` is the welcome email Reach sends to each new contact (every team captain who registers). It is stored in Reach as the template **"Registration Confirmation 2027"**. Reach's API can create templates but not edit them, so after changing this file, create a new template from it (or paste it into Reach's HTML editor) and select it in the automation's "Send email" step.
 
+Reach's **brand settings** (logo, colors, default sender `hello@hoops4hunger.com`, About text and selling points) were updated for 2027 to match the site; the logo is loaded from `https://hoops4hunger.com/images/logo/hfh-badge-1024.png`, so keep that file in place. No social links are set yet; add them in Reach and the site footer once the pages exist.
+
 Email rules: every text element sets its own `color` (many email apps don't inherit it), layout is tables with inline styles, images use absolute `https://hoops4hunger.com/...` URLs, and the `{{unsubscribe-link}}` tag must stay.
 
 ## Logo
