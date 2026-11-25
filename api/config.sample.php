@@ -10,6 +10,9 @@ return [
     // Generate an API token in hPanel (see README: "Turning on the registration form")
     'reach_api_token' => 'PASTE-YOUR-HOSTINGER-API-TOKEN-HERE',
 
+    // Optional: which Reach profile gets the contacts (defaults to St. John Hoops for Hunger).
+    // 'reach_profile_uuid' => 'b3101000-7629-4148-9e5e-be8e5885cb48',
+
     // Optional: Reach tag UUIDs to attach to every registrant (e.g. a "2027 Teams" tag).
     'reach_tag_uuids' => [],
 

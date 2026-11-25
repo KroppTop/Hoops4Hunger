@@ -29,6 +29,9 @@ foreach ($configPaths as $path) {
 $config += [
     'reach_api_token' => getenv('REACH_API_TOKEN') ?: '',
     'reach_api_base'  => 'https://developers.hostinger.com',
+    // "St. John Hoops for Hunger" Reach profile. The account has several profiles,
+    // so contacts must be created on this one explicitly.
+    'reach_profile_uuid' => 'b3101000-7629-4148-9e5e-be8e5885cb48',
     'reach_tag_uuids' => [],
     'notify_to'       => 'hello@hoops4hunger.com',
     'mail_from'       => 'hello@hoops4hunger.com',
@@ -83,7 +86,10 @@ function addToReach(array $config, array $contact): array
     if ($config['reach_api_token'] === '') {
         return [false, 'Reach API token is not configured'];
     }
-    $url = rtrim($config['reach_api_base'], '/') . '/api/reach/v1/contacts';
+    $base = rtrim($config['reach_api_base'], '/');
+    $url = $config['reach_profile_uuid'] !== ''
+        ? $base . '/api/reach/v1/profiles/' . rawurlencode($config['reach_profile_uuid']) . '/contacts'
+        : $base . '/api/reach/v1/contacts';
     $ch = curl_init($url);
     curl_setopt_array($ch, [
         CURLOPT_POST           => true,
