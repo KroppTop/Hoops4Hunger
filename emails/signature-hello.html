@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email Signature - hello@hoops4hunger.com</title>
+<style>
+  body { margin: 0; padding: 32px 16px; background: #eef1f6; font-family: Arial, Helvetica, sans-serif; color: #1c2533; }
+  .wrap { max-width: 680px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  .help { font-size: 15px; line-height: 1.6; color: #3d4757; }
+  .help ol { padding-left: 20px; }
+  .card { background: #ffffff; border: 1px solid #d5dbe5; border-radius: 10px; padding: 28px; margin: 20px 0; }
+  .label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #6b7587; margin: 0 0 14px; }
+  button { font: 700 15px Arial, sans-serif; background: #2357e8; color: #fff; border: 0; border-radius: 8px; padding: 12px 20px; cursor: pointer; }
+  #copied { margin-left: 12px; color: #1a7f37; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Email signature for hello@hoops4hunger.com</h1>
+  <div class="help">
+    <ol>
+      <li>Click <strong>Copy signature</strong> below (or select everything inside the white box and copy it).</li>
+      <li>Open <strong>Hostinger Webmail</strong> (mail.hostinger.com), sign in as hello@hoops4hunger.com, and go to <strong>Settings &rarr; Signature</strong> (in some versions: Settings &rarr; Identities &rarr; Signature).</li>
+      <li>Paste into the signature box, turn on <strong>"add signature to new emails and replies"</strong>, and save.</li>
+    </ol>
+  </div>
+
+  <p><button type="button" id="copy">Copy signature</button><span id="copied" hidden>Copied!</span></p>
+
+  <div class="card">
+    <p class="label">Signature preview</p>
+
+    <!-- ===== SIGNATURE START ===== -->
+    <div id="signature">
+    <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; font-family:Arial, Helvetica, sans-serif;">
+      <tr>
+        <td valign="top" style="padding:0 16px 0 0;">
+          <a href="https://hoops4hunger.com/" style="text-decoration:none;"><img src="https://hoops4hunger.com/images/logo/hfh-badge-176.png" width="88" height="88" alt="Hoops for Hunger" style="display:block; width:88px; height:88px; border:0;"></a>
+        </td>
+        <td valign="top" style="padding:0 0 0 16px; border-left:3px solid #e8b64c;">
+          <p style="margin:0; font-family:Georgia, 'Times New Roman', serif; font-size:19px; line-height:24px; font-weight:bold; color:#0b1424;">Hoops for Hunger</p>
+          <p style="margin:2px 0 0; font-size:13px; line-height:18px; color:#4a5568;">St. John Lutheran 3v3 Challenge &middot; Berlin, WI</p>
+          <p style="margin:8px 0 0; font-size:13px; line-height:18px; font-weight:bold; color:#2357e8;">Sat, April 10 &amp; 17, 2027 &middot; Register by April 7</p>
+          <p style="margin:8px 0 0; font-size:13px; line-height:20px; color:#4a5568;">
+            <a href="https://hoops4hunger.com/" style="color:#2357e8; text-decoration:none; font-weight:bold;">hoops4hunger.com</a>
+            &nbsp;|&nbsp;
+            <a href="tel:+19206583029" style="color:#4a5568; text-decoration:none;">(920) 658-3029</a>
+          </p>
+          <p style="margin:4px 0 0; font-size:12px; line-height:17px; color:#6b7587;">Benefiting the Berlin Food Pantry</p>
+        </td>
+      </tr>
+    </table>
+    </div>
+    <!-- ===== SIGNATURE END ===== -->
+  </div>
+
+  <div class="help">
+    <p><strong>Profile picture:</strong> in Webmail settings, upload <code>hfh-icon-1024.png</code> (the gold basketball) or <code>hfh-badge-1024.png</code> from the logo zip.<br>
+    <strong>Display name:</strong> set the sender name to <strong>Hoops for Hunger</strong> so emails show that instead of just the address.</p>
+  </div>
+</div>
+<script>
+  document.getElementById('copy').addEventListener('click', async () => {
+    const el = document.getElementById('signature');
+    try {
+      const html = el.innerHTML, text = el.innerText;
+      await navigator.clipboard.write([new ClipboardItem({
+        'text/html': new Blob([html], { type: 'text/html' }),
+        'text/plain': new Blob([text], { type: 'text/plain' })
+      })]);
+    } catch (e) {
+      const r = document.createRange(); r.selectNodeContents(el);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand('copy'); s.removeAllRanges();
+    }
+    document.getElementById('copied').hidden = false;
+  });
+</script>
+</body>
+</html>
